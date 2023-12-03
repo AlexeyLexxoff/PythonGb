@@ -1,8 +1,8 @@
-import pandas as pd
+# import pandas as pd
 
-file = 'california_housing_train.csv'
+# file = 'california_housing_train.csv'
 
-df = pd.read_csv(file)
+# df = pd.read_csv(file)
 
 # Дан файл california_housing_train.csv. Определить среднюю стоимость дома , где количество людей от 0 до 500 (population) и сохранить ее в переменную avg.
 # Используйте модуль pandas.
@@ -33,10 +33,18 @@ df = pd.read_csv(file)
 
 
 
-min_population = df['population'].min()
+# min_population = df['population'].min()
 
-min_population_data = df[df['population'] == min_population]
+# min_population_data = df[df['population'] == min_population]
 
-max_households_in_min_population = min_population_data['households'].max()
+# max_households_in_min_population = min_population_data['households'].max()
 
-print(max_households_in_min_population)
+# print(max_households_in_min_population)
+
+
+import random
+lst = ['robot'] * 10
+lst += ['human'] * 10
+random.shuffle(lst)
+data = pd.DataFrame({'whoAmI':lst})
+data.head()

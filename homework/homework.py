@@ -1,3 +1,4 @@
+from enum import unique
 import pandas as pd
 import random
 
@@ -9,11 +10,11 @@ lst += ['human'] * 10
 random.shuffle(lst)
 data = pd.DataFrame({'whoAmI':lst})
 data.head()
-# print(data)
 
-data['tmp'] = 1
-data.set_index([data.index, 'whoAmI'], inplace=True)
-data = data.unstack(level=-1, fill_value = 0).astype(int)
-data.columns = data.columns.droplevel()
-data.columns.name = None
+conv = pd.DataFrame()
+unique_values = data['whoAmI'].unique()
+for val in unique_values:
+    conv[val] = (data['whoAmI'] == val).astype(int)
+conv.head()
 print(data)
+print(conv)
